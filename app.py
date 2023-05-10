@@ -23,3 +23,10 @@ class Profiles(Resource):
         return make_response(jsonify(profiles), 200)
 
 api.add_resource(Profiles, '/profiles')
+
+class ProfileById(Resource):
+    def get(self, id):
+        profile = Profile.query.filter(Profile.id == id).first().to_dict()
+        return make_response(profile, 200)
+    
+api.add_resource(ProfileById, '/profiles/<int:id>')
