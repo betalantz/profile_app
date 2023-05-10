@@ -22,4 +22,4 @@ class Profiles(Resource):
         profiles = [profile.to_dict() for profile in Profile.query.all()]
         return make_response(jsonify(profiles), 200)
 
-api.add_resource(Profiles, '/birds')
+api.add_resource(Profiles, '/profiles')
